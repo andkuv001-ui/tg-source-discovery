@@ -134,7 +134,7 @@ class SourceLink(Base):
     confidence = Column(Float, default=0.5)
     context = Column(Text)
     discovered_at = Column(DateTime(timezone=True), default=datetime.utcnow)
-    metadata = Column(JSONB, default={})
+    link_metadata = Column(JSONB, default={})
 
     __table_args__ = (
         UniqueConstraint("source_id", "target_source_id", "edge_type"),

@@ -118,7 +118,7 @@ def upgrade() -> None:
         sa.Column('confidence', sa.Float, server_default='0.5'),
         sa.Column('context', sa.Text),
         sa.Column('discovered_at', sa.DateTime(timezone=True), server_default=sa.text('NOW()')),
-        sa.Column('metadata', JSONB, server_default='{}'),
+        sa.Column('link_metadata', JSONB, server_default='{}'),
         sa.UniqueConstraint('source_id', 'target_source_id', 'edge_type'),
     )
     op.create_index('idx_source_links_source', 'source_links', ['source_id'])
